@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchRest } from '../actions';
 import YDetail from './YDetail'
 
+import Mode from './Mode'
 
 const ProfileList = props => {
     
@@ -19,6 +20,7 @@ const ProfileList = props => {
 
   return (
     <div>
+      <Mode/>
       {props.error && <p>{props.error}</p>}
       {props.catFacts.map(fact => (
         <YDetail key={fact._id} fact={fact} />

@@ -9,14 +9,15 @@ import ProfileList from './components/ProfileList';
 import Ad from './components/Ad'
 
 
+
 function App() {
   return (
     <Router>
       <div className="App">
         <ul>
-          <li>
+          {/* <li>
             <Link to="/login">Login</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/signin">Sign In</Link>
           </li>
@@ -32,7 +33,7 @@ function App() {
         <Switch>
           {/* <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="" component={AddFriend} /> */}
-          <Route path="/login" component={Login} />
+          {/* <Route path="/login" component={Login} /> */}
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Register} />
           <Route path="/profileList" component={ProfileList} />
