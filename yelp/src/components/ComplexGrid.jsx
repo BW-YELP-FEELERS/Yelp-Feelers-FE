@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import HoverRating from './Stars';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,6 +56,9 @@ const ComplexGrid = props => {
               <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
                   Remove
+                </Typography>
+                <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                  <HoverRating />
                 </Typography>
               </Grid>
             </Grid>

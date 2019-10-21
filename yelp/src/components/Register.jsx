@@ -28,7 +28,7 @@ export default function Register({ history }) {
   };
 
   const handleLogin = event => {
-    history.push("/")
+    history.push("/signin")
   }
 
 
