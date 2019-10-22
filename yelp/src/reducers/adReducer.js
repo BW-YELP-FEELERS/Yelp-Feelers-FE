@@ -1,4 +1,4 @@
-import { AD_FETCH, AD_SUCCESS, AD_FAILURE} from '../actions/index'
+import { AD_FETCH, AD_SUCCESS, AD_FAILURE} from '../actions/adActions'
 
 const initialState = {
     ad : [],
@@ -6,9 +6,9 @@ const initialState = {
     error: ''
 }
 
-const AdReducer = (state = initialState, action) => {
+const adReducer = (state = initialState, action) => {
     switch (action.type) {
-        case AD_FETCHING:
+        case AD_FETCH:
           return {
             ...state,
             isFetching: true,
@@ -32,4 +32,4 @@ const AdReducer = (state = initialState, action) => {
       }
     };
  
-export default AdReducer;
+export default adReducer;

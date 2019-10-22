@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+//import favoriteSave from '../actions/favoritesAction'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,11 +53,11 @@ const ComplexGrid = props => {
                   ID: 1030114
                 </Typography>
               </Grid>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                  Remove
+              {/* <Grid item>
+                <Typography variant="body2" style={{ cursor: 'pointer' }} onClick={props.favoriteSave}>
+                  Add to Favorites
                 </Typography>
-              </Grid>
+              </Grid> */}
             </Grid>
             <Grid item>
               <Typography variant="subtitle1">$19.00</Typography>
@@ -68,4 +69,17 @@ const ComplexGrid = props => {
   );
 }
 
-export default ComplexGrid;
+export default ComplexGrid
+
+// const mapStateToProps = state => {
+//   return {
+//     catFacts: state.catFacts,
+//     isFetching: state.isFetching,
+//     error: state.error
+//   };
+// };
+
+// export default connect(
+//   null,
+//   { favoriteSave }
+// )(ComplexGrid);

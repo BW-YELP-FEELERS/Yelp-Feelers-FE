@@ -1,5 +1,5 @@
 //to consume all reducer files
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, NEW_REVIEW_FETCH, NEW_REVIEW_SUCCESS, NEW_REVIEW_FAILURE} from '../actions/index'
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE} from '../actions/index'
 
 const initialState = {
     catFacts : [],
@@ -7,7 +7,7 @@ const initialState = {
     error: ''
 }
 
-const RestaurantsReducer = (state = initialState, action) => {
+const restaurants = (state = initialState, action) => {
     switch (action.type) {
         case START_FETCHING:
           return {
@@ -33,4 +33,4 @@ const RestaurantsReducer = (state = initialState, action) => {
       }
     };
  
-export default RestaurantsReducer;
+export default restaurants;

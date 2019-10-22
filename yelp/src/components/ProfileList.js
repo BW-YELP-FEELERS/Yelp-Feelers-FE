@@ -8,7 +8,7 @@ import Mode from './Mode'
 
 const ProfileList = props => {
     
-    console.log(props.fetchRest)
+    console.log(props)
   useEffect(() => {
     props.fetchRest();
   }, []);
@@ -31,9 +31,9 @@ const ProfileList = props => {
 
 const mapStateToProps = state => {
   return {
-    catFacts: state.catFacts,
-    isFetching: state.isFetching,
-    error: state.error
+    catFacts: state.restaurants.catFacts,
+    isFetching: state.restaurants.isFetching,
+    error: state.restaurants.error
   };
 };
 
