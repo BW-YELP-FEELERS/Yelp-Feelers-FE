@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "yelp",
+    "builds": [{ "src": "yelp/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "yelp/$1" }
+    ]
+}

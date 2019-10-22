@@ -1,20 +1,20 @@
-import { FAVORITE_SAVE, FAVORITE_REMOVE} from '../actions'
+import { FAVORITE_SAVE, FAVORITE_REMOVE} from '../actions/favoritesAction'
 
-const initialState = (
-    state = []
-)
+const initialState = {
+    favorites : []
+}
 
-const favoriteReducer = (state = initialState, action) => {
+export default function favorite(state = initialState, action) {
     switch(action.type){
         case "FAVORITE_SAVE":
             return[
-            ...state, action.payload
+            ...state.favorites, action.payload
             ]  
             
         case "FAVORITE_REMOVE":
                 return[
                 ...state, 
-                state.filter(e => e.action.payload)
+                state.favorites.filter(e => e.action.payload)
                 ]  
         }
 }

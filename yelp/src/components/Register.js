@@ -18,11 +18,11 @@ export default function Register({ history }) {
   const handleSubmit = event => {
     console.log("login: ", login)
     event.preventDefault();
-    axios.post('', login)
+    axios.post('https://yelp-feelers-be.herokuapp.com/register', login)
       .then(res => {
         console.log("registration result:", res);
         localStorage.setItem('token', res.data.token);
-        history.push("/dashboard");
+        history.push("/");
       })
       .catch(err => console.log(err.response));
   };

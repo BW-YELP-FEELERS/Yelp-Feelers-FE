@@ -13,6 +13,7 @@ const Login = (props) => {
         ...credentials,
         [e.target.name]: e.target.value
     });
+    console.log(credentials)
   };
 
 
@@ -22,13 +23,13 @@ const Login = (props) => {
     e.preventDefault();
     // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
     axiosWithAuth()
-      .post('/login', credentials)
+      .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
       .then(res => {
-          console.log(res.data)
+          console.log(res)
         localStorage.setItem('token', res.data.payload);
         // redirect to the apps main page?
         //Route component - props.history
-        props.history.push('/bubblepage');
+        props.history.push('/');
       })
       .catch(err => console.log(err));
   };

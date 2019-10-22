@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { fetchRest } from '../actions';
 import YDetail from './YDetail'
 
+import Mode from './Mode'
 
 const ProfileList = props => {
     
-    console.log(props.fetchRest)
+    console.log(props)
   useEffect(() => {
     props.fetchRest();
   }, []);
@@ -19,6 +20,7 @@ const ProfileList = props => {
 
   return (
     <div>
+      <Mode/>
       {props.error && <p>{props.error}</p>}
       {props.catFacts.map(fact => (
         <YDetail key={fact._id} fact={fact} />
@@ -29,9 +31,9 @@ const ProfileList = props => {
 
 const mapStateToProps = state => {
   return {
-    catFacts: state.catFacts,
-    isFetching: state.isFetching,
-    error: state.error
+    catFacts: state.restaurants.catFacts,
+    isFetching: state.restaurants.isFetching,
+    error: state.restaurants.error
   };
 };
 
