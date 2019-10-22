@@ -19,7 +19,7 @@ const adReducer = (state = initialState, action) => {
             ...state,
             isFetching: false,
             error: '',
-            catFacts: action.payload
+            ad: action.payload
           };
         case AD_FAILURE:
           return {

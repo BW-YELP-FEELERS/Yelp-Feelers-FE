@@ -1,67 +1,75 @@
-import React from "react";
-import axios from "axios";
+import React, {useEffect} from "react";
 import ComplexGrid from './ComplexGrid';
+import { connect } from 'react-redux';
+
+import { fetchAd } from '../actions/adActions';
 
 
 
-
-export default class Ad extends React.Component {
+// export default class Ad extends React.Component {
   
-  constructor(props) {
-    console.log(`ad`, props)
-    super(props);
-    this.state = {
-      ad: null
-    };
-  }
+//   constructor(props) {
+//     console.log(`ad`, props)
+//     super(props);
+//     this.state = {
+//       ad: null
+//     };
+//   }
 
-  // const Ad = (props) => {
-  //   const [ad, setAd] = ([])
+  const Ad = (props) => {
+    console.log(`Ad props`, props)
+    const [ad, setAd] = ([])
+  
+  
+  // //recieve from props id of ad that was clicked on, coming from ComplexGrid
+  // componentDidMount() {
+  //   console.log(this.props.match.params.id)
+  //   this.fetchMovie(this.props.match.params.id);
   // }
-  
-  //recieve from props id of ad that was clicked on, coming from ComplexGrid
-  componentDidMount() {
-    console.log(this.props.match.params.id)
-    this.fetchMovie(this.props.match.params.id);
-  }
 
-  //if id is not = to 
-  componentWillReceiveProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
-      this.fetchMovie(newProps.match.params.id);
-    }
-  }
+  // //if id is not = to 
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.match.params.id !== newProps.match.params.id) {
+  //     this.fetchMovie(newProps.match.params.id);
+  //   }
+  // }
 
-  // useEffect(() => {
-  //   props.fetchAd()
-  // }, [])
+  useEffect(() => {
+    props.fetchAd()
+  }, [])
 
-  fetchMovie = id => {
-    axios
-      .get(`https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts/movies/${id}`)
-      .then(res => this.setState({ ad: res.data }))
-      .catch(err => console.log(err.response));
-  };
+      if (props.isFetching) {
+        return <h2>Loading Resturants Facts...</h2>;
+      }
 
-  saveMovie = () => {
+      
+
+  // fetchMovie = id => {
+  //   axios
+  //     .get(`https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts/movies/${id}`)
+  //     .then(res => this.setState({ ad: res.data }))
+  //     .catch(err => console.log(err.response));
+  // };
+
+  const saveMovie = () => {
     const addToSavedList = this.props.addToSavedList;
     addToSavedList(this.state.ad);
   };
 
-  deleteItem = e => {
-    e.preventDefault();
-    axios
-      .delete(`http://localhost:5000/api/movies/${this.state.ad.id}`)
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(err => console.log(err.response));
-  };
+  // deleteItem = e => {
+  //   e.preventDefault();
+  //   axios
+  //     .delete(`http://localhost:5000/api/movies/${this.state.ad.id}`)
+  //     .then(res => {
+  //       console.log(res.data)
+  //     })
+  //     .catch(err => console.log(err.response));
+  // };
 
-  render() {
-    if (!this.state.ad) {
-      return <div>Loading movie information...</div>;
-    }
+  // render() {
+  //   if (!this.state.ad) {
+  //     return <div>Loading movie information...</div>;
+  //   }
 
     return (
       <div className="save-wrapper">
@@ -80,20 +88,20 @@ export default class Ad extends React.Component {
       </div>
     );
   }
-}
 
-  // const mapStateToProps = state => {
-  //   return {
-  //     catFacts: state.catFacts,
-  //     isFetching: state.isFetching,
-  //     error: state.error
-  //   };
-  // };
+
+  const mapStateToProps = state => {
+    return {
+      ad: state.adReducer.ad,
+      isFetching: state.adReducer.isFetching,
+      error: state.adReducer.error
+    };
+  };
   
-  // export default connect(
-  //   mapStateToProps,
-  //   { fetchId }
-  // )(Ad);
+  export default connect(
+    mapStateToProps,
+    { fetchAd }
+  )(Ad);
 
 
 
