@@ -4,7 +4,7 @@ import ComplexGrid from './ComplexGrid';
 import { connect } from 'react-redux';
 import { favoriteSave } from '../actions/favoritesAction';
 import { fetchAd } from '../actions/adActions';
-
+import MODE from './Mode'
 
 
   const AdF = (props) => {
@@ -15,11 +15,6 @@ import { fetchAd } from '../actions/adActions';
         props.fetchAd(props)
       }, [])
 
-
-  // const saveMovie = () => {
-  //   const addToSavedList = this.props.addToSavedList;
-  //   addToSavedList(ad);
-  // };
 
   // const deleteItem = e => {
   //   e.preventDefault();
@@ -33,6 +28,8 @@ import { fetchAd } from '../actions/adActions';
 console.log(props)
 
     return (
+      <>
+      <MODE />
       <div className="save-wrapper">
         <ComplexGrid fact={props.ad} />
         <button className="save-button" 
@@ -48,6 +45,7 @@ console.log(props)
         Delete Item
       </button> */}
       </div>
+      </>
     );
   }
 
