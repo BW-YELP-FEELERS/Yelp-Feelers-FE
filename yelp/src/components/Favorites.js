@@ -3,7 +3,7 @@ import {favoriteSave} from '../actions/favoritesAction'
 import {favoriteRemove} from '../actions/favoritesAction'
 import ComplexGrid from './ComplexGrid';
 import { connect } from 'react-redux';
-import MyProfile from './myprofile'
+import MyProfile from './MyProfile'
 
 
 const Favorites = (props) => {

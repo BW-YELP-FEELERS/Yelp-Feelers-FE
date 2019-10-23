@@ -9,7 +9,7 @@ const favorites = (state = initialState, action) => {
         case FAVORITE_SAVE:
             return{
             ...state,
-            myfavorites: [...state.myfavorites, action.payload]  
+            myfavorites: action.payload  
         }
 
         case FAVORITE_REMOVE:

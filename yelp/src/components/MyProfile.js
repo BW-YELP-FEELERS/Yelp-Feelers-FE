@@ -12,7 +12,12 @@ const MyProfile = props => {
     return(
         <>
         <Mode/>
-        
+        <div>
+        <p>{props.ogReviews.original_text_review}</p>
+        </div>
+        <div>
+        <p>{props.mod._text_review}</p>
+        </div>
         </>
     )
 
