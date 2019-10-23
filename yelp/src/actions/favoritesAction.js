@@ -4,6 +4,7 @@ import axios from 'axios'
 export const FAVORITE_SAVE = 'FAVORITE_SAVE'
 export const FAVORITE_REMOVE = 'FAVORITE_REMOVE'
 
+//waiting for api to store favorites
 export const favoriteSave = (item) => dispatch => {
     // make sure to call dispatch
     console.log(item)
