@@ -7,22 +7,22 @@ import MyProfile from './MyProfile'
 
 
 const Favorites = (props) => {
-    console.log(`Favorites props`,props)
+    console.log(`Favorites props`,props.myFavorites)
    
   
     return (
       <div>
         {props.error && <p>{props.error}</p>}
-        {props.state.map(fact => (
+        {props.myfavorites.map(fact => (
           <MyProfile key={fact.id} fact={fact} />
         ))}
       </div>
     );
   };
-
+  
 const mapStateToProps = state => {
     return {
-      state: state.favorites.myFavorites,
+      myfavorites: state.favorites.myFavorites,
     //   isAdding: state.isAdding,
     //   isRemoving: state.isRemoving,
     //   error: state.error

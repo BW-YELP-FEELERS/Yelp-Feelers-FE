@@ -73,13 +73,13 @@ export default ComplexGrid
 
 // const mapStateToProps = state => {
 //   return {
-//     catFacts: state.catFacts,
+//     loggedin: state.loggedin,
 //     isFetching: state.isFetching,
 //     error: state.error
 //   };
 // };
 
 // export default connect(
-//   null,
+//   mapStatetoprops
 //   { favoriteSave }
 // )(ComplexGrid);

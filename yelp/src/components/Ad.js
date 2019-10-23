@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useDispatch} from "react";
 import axios from 'axios'
 import ComplexGrid from './ComplexGrid';
 import { connect } from 'react-redux';
@@ -7,17 +7,18 @@ import { fetchAd } from '../actions/adActions';
 
 
 
+
 export class Ad extends React.Component {
- 
+  
   constructor(props) {
     
     super(props);
     this.state = {
-      ad: null
+      ad: null,
     };
     console.log(`Ad`,this.props.favoriteSave)
   }
-
+  
   // const Ad = (props) => {
   //   console.log(`Ad props`, props)
   //   const [ad, setAd] = ([])
@@ -36,7 +37,8 @@ export class Ad extends React.Component {
     }
   }
 
-  // useEffect(() => {
+  // useEffect((newProps) => {
+  //if (this.props.match.params.id !== newProps.match.params.id)
   //   props.fetchAd()
   // }, [])
 
@@ -70,6 +72,7 @@ export class Ad extends React.Component {
   // };
 
   render() {
+    console.log(`Ad state`, this.state.ad)
     if (!this.state.ad) {
       return <div>Loading movie information...</div>;
     }
@@ -77,7 +80,8 @@ export class Ad extends React.Component {
     return (
       <div className="save-wrapper">
         <ComplexGrid fact={this.state.ad} />
-        <button className="save-button" onClick={this.props.favoriteSave}>
+        <button className="save-button" 
+        onClick={()=> useDispach(this.props.favoriteSave(this.state.ad))}>
           Save to Favorites
         </button>
         {/* <button
@@ -93,10 +97,10 @@ export class Ad extends React.Component {
   }
 }
 
-export default connect(
-    null,
-    { favoriteSave }
-  )(Ad);
+// export default connect(
+//     null,
+//     { favoriteSave, useDispatch }
+//   )(Ad);
 
 
 

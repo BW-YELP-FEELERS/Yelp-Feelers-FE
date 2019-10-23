@@ -6,7 +6,7 @@ import SignIn from './components/SignIn';
 // import Main from './components/Main';
 import Register from './components/Register';
 import ProfileList from './components/ProfileList';
-import Ad from './components/Ad'
+import AdF from './components/AdF'
 import Favorites from './components/Favorites'
 
 
@@ -21,6 +21,9 @@ function App() {
           </li> */}
           <li>
             <Link to="/signin">Sign In</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
           </li>
           <li>
             <Link to="/register">Sign Up</Link>
@@ -38,17 +41,17 @@ function App() {
           {/* <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="" component={AddFriend} /> */}
           {/* <Route path="/login" component={Login} /> */}
-          <Route path="/signin" component={SignIn} />
+          <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profileList" component={ProfileList} />
           <Route path="/favorites" component={Favorites} />
           <Route
               path="/reviews/:id"
               render={props => {
-          return <Ad {...props} />;
+          return <AdF {...props} />;
           
         }} />
-         
+          
         </Switch>
       </div>
     </Router>

@@ -21,12 +21,13 @@ const Login = (props) => {
   //gets token and saves in localstorage
   const login = e => {
     e.preventDefault();
+    console.log(credentials)
     // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
     axiosWithAuth()
       .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
       .then(res => {
           console.log(res)
-        localStorage.setItem('token', res.data.payload);
+        localStorage.setItem('token', res.data.token);
         // redirect to the apps main page?
         //Route component - props.history
         props.history.push('/');

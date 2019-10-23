@@ -4,12 +4,20 @@ const initialState = {
     myfavorites : []
 }
 
+
 const favorites = (state = initialState, action) => {
     switch(action.type){
+        // case FAVORITE_FETCH:
+        //     return{
+        //         ...state,
+        //         myfavorites: action.payload
+        //     }
+        
         case FAVORITE_SAVE:
+            console.log(action.payload)
             return{
             ...state,
-            myfavorites: action.payload  
+            myfavorites: action.payload
         }
 
         case FAVORITE_REMOVE:
@@ -21,6 +29,7 @@ const favorites = (state = initialState, action) => {
         default:
             return state
     }
+    
 }
 export default favorites
 

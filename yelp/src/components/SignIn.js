@@ -77,6 +77,7 @@ const SignIn = (props) => {
   //gets token and saves in localstorage
   const login = e => {
     e.preventDefault();
+    //console.log(res.data)
     // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
     axiosWithAuth()
       .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
