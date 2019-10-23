@@ -1,17 +1,20 @@
 import React from 'react'
-import favoriteSave from '../actions/favoritesAction'
-import favoriteRemove from '../actions/favoritesAction'
+import {favoriteSave} from '../actions/favoritesAction'
+import {favoriteRemove} from '../actions/favoritesAction'
+import ComplexGrid from './ComplexGrid';
+import { connect } from 'react-redux';
+import MyProfile from './myprofile'
+
 
 const Favorites = (props) => {
-    console.log(props)
+    console.log(`Favorites props`,props)
    
   
     return (
       <div>
-        <Mode/>
         {props.error && <p>{props.error}</p>}
-        {props..map(fact => (
-          <YDetail key={fact._id} fact={fact} />
+        {props.state.map(fact => (
+          <MyProfile key={fact.id} fact={fact} />
         ))}
       </div>
     );
@@ -19,10 +22,10 @@ const Favorites = (props) => {
 
 const mapStateToProps = state => {
     return {
-      state: state.myFavorites,
-      isAdding: state.isAdding,
-      isRemoving: state.isRemoving,
-      error: state.error
+      state: state.favorites.myFavorites,
+    //   isAdding: state.isAdding,
+    //   isRemoving: state.isRemoving,
+    //   error: state.error
     };
   };
   

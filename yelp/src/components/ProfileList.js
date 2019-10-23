@@ -4,26 +4,25 @@ import { connect } from 'react-redux';
 import { fetchRest } from '../actions';
 import YDetail from './YDetail'
 
-import Mode from './Mode'
+
 
 const ProfileList = props => {
     
     console.log(props)
   useEffect(() => {
-    props.fetchRest();
+    props.fetchRest(props);
   }, []);
 
   if (props.isFetching) {
     // usually a spinner (react-loader-spinner)
     return <h2>Loading Resturants Facts...</h2>;
   }
-
+console.log(`Pl`, props)
   return (
     <div>
-      <Mode/>
       {props.error && <p>{props.error}</p>}
-      {props.catFacts.map(fact => (
-        <YDetail key={fact._id} fact={fact} />
+      {props.diner.map(fact => (
+        <YDetail key={fact.business_id} fact={fact} />
       ))}
     </div>
   );
@@ -31,7 +30,7 @@ const ProfileList = props => {
 
 const mapStateToProps = state => {
   return {
-    catFacts: state.restaurants.catFacts,
+    diner: state.restaurants.diner,
     isFetching: state.restaurants.isFetching,
     error: state.restaurants.error
   };

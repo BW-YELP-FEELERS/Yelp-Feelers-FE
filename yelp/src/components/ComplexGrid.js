@@ -44,7 +44,7 @@ const ComplexGrid = props => {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                <p>{props.fact.text}</p>
+                <p>{props.fact.original_text_review}</p>
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                   Full resolution 1920x1080 • JPEG

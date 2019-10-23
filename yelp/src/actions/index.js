@@ -16,9 +16,9 @@ export const fetchRest = () => dispatch => {
   // action objects
   dispatch({ type: START_FETCHING });
   // from thunk (see below) do some async action and dispatch an error or success action
-  axios.get('https://cors-anywhere.herokuapp.com/https://cat-fact.herokuapp.com/facts')
-    .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data.all }))
-    // .then(res => console.log(res.data.users))
+  axios.get('https://yelp-feelers-be.herokuapp.com/reviews')
+    .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
+    // .then(res => console.log(res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };
 

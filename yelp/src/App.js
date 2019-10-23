@@ -7,6 +7,7 @@ import SignIn from './components/SignIn';
 import Register from './components/Register';
 import ProfileList from './components/ProfileList';
 import Ad from './components/Ad'
+import Favorites from './components/Favorites'
 
 
 
@@ -27,6 +28,9 @@ function App() {
           <li>
             <Link to="/profileList">ProfileList</Link>
           </li>
+          <li>
+            <Link to="/favorites">Favorites</Link>
+          </li>
          
         </ul>
         {/* switch, can use without exact */}
@@ -37,10 +41,12 @@ function App() {
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Register} />
           <Route path="/profileList" component={ProfileList} />
+          <Route path="/favorites" component={Favorites} />
           <Route
-              path="/movies/:id"
+              path="/reviews/:id"
               render={props => {
           return <Ad {...props} />;
+          
         }} />
          
         </Switch>

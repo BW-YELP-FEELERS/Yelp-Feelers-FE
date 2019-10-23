@@ -16,7 +16,6 @@ export default function Register({ history }) {
   };
 
   const handleSubmit = event => {
-    console.log("login: ", login)
     event.preventDefault();
     axios.post('https://yelp-feelers-be.herokuapp.com/register', login)
       .then(res => {

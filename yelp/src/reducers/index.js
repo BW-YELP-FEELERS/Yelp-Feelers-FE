@@ -11,8 +11,10 @@
 import { combineReducers } from 'redux'
 import restaurants from './restaurants'
 import adReducer from './adReducer'
+import favorites from './favoritesReducer'
 
 export default combineReducers ({
   restaurants,
-  adReducer
+  adReducer,
+  favorites
 })

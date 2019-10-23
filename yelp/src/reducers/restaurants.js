@@ -2,7 +2,7 @@
 import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE} from '../actions/index'
 
 const initialState = {
-    catFacts : [],
+    diner : [],
     isFetching: false,
     error: ''
 }
@@ -20,7 +20,7 @@ const restaurants = (state = initialState, action) => {
             ...state,
             isFetching: false,
             error: '',
-            catFacts: action.payload
+            diner: action.payload
           };
         case FETCH_FAILURE:
           return {
