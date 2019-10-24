@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 // action types
 export const START_FETCHING = 'START_FETCHING';
@@ -16,7 +16,8 @@ export const fetchRest = () => dispatch => {
   // action objects
   dispatch({ type: START_FETCHING });
   // from thunk (see below) do some async action and dispatch an error or success action
-  axios.get('https://yelp-feelers-be.herokuapp.com/reviews')
+  axiosWithAuth()
+  .get('https://yelp-feelers-be.herokuapp.com/reviews')
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
     // .then(res => console.log(`Index Action res.data`, res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));

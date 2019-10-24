@@ -9,7 +9,7 @@ import MODE from './Mode'
 
   const AdF = (props) => {
 
-
+    console.log(`AdF`, props)
     useEffect(() => {
       console.log(`Ad props`, props)
         props.fetchAd(props)
