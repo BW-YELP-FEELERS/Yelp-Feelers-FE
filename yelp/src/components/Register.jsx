@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SimpleBottomNavigation from "./AppBar";
+
 
 
 //need to destructure history, so can redirect user to other pages
@@ -22,13 +22,13 @@ export default function Register({ history }) {
       .then(res => {
         console.log("registration result:", res);
         localStorage.setItem('token', res.data.token);
-        history.push("/login");
+        history.push("/signin");
       })
       .catch(err => console.log(err.response));
   };
 
   const handleLogin = event => {
-    history.push("/login")
+    history.push("/signin")
   }
 
 
@@ -59,7 +59,6 @@ export default function Register({ history }) {
       </form>
       <button  onClick={handleLogin}>Already have an account? Log in.</button>
     </div>
-    <SimpleBottomNavigation />
     </div>
   )
 }

@@ -23,7 +23,7 @@ const favorites = (state = initialState, action) => {
         case FAVORITE_REMOVE:
                 return{
                 ...state, 
-                myfavorites: state.favorites.filter(e => e.action.payload)
+                myfavorites: state.favorites.filter(e => !e.action.payload)
                  }
         //must include default: return state
         default:
