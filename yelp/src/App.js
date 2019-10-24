@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import Login from './components/Login';
 import SignIn from './components/SignIn';
-// import Main from './components/Main';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Register';
 import ProfileList from './components/ProfileList';
 import AdF from './components/AdF'
@@ -43,8 +43,8 @@ function App() {
           {/* <Route path="/login" component={Login} /> */}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/profileList" component={ProfileList} />
-          <Route path="/favorites" component={Favorites} />
+          <PrivateRoute path="/profileList" component={ProfileList} />
+          <PrivateRoute path="/favorites" component={Favorites} />
           <Route
               path="/reviews/:id"
               render={props => {
