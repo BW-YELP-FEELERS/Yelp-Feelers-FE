@@ -6,23 +6,12 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-const labels = {
-  0.5: 'Useless',
-  1: 'Useless+',
-  1.5: 'Poor',
-  2: 'Poor+',
-  2.5: 'Ok',
-  3: 'Ok+',
-  3.5: 'Good',
-  4: 'Good+',
-  4.5: 'Excellent',
-  5: 'Excellent+',
-};
 
 function IconContainer(props) {
+  console.log(props)
   const { value, ...other } = props;
   return (
-    <Tooltip title={labels[value] || ''}>
+    <Tooltip title={value}>
       <div {...other} />
     </Tooltip>
   );
@@ -45,15 +34,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HoverRating() {
-  const value = 2;
+export default function AdjustedRating() {
+
+  const value = 4;
   const [hover, setHover] = React.useState(-1);
   const classes = useStyles();
 
   return (
     <div>
       <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend"><h1>Rating:</h1></Typography>
+        <Typography component="legend"><h1>Adjusted Rating:</h1></Typography>
         <div className="stars">
           <Rating
             name="hover-side"

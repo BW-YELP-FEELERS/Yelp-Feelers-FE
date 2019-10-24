@@ -1,75 +1,30 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
+import {
+  Card, CardText, CardBody, CardLink,
+  CardTitle, CardSubtitle
+} from 'reactstrap';
 import HoverRating from './Stars';
+import AdjustedRating from './AdjustedStars';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 500,
-  },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-}));
 
-const ComplexGrid = props => {
-  console.log(`Cgrid props`, props)
-  const classes = useStyles();
-
+const ComplexGrid = (props) => {
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src="/static/images/grid/complex.jpg" />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                <p>{props.fact.text}</p>
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                  Remove
-                </Typography>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                  <HoverRating />
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
+    <div>
+      <Card>
+        <CardBody>
+          <CardTitle>Business Name: {props.fact.business_name} </CardTitle>
+          <CardSubtitle>Business Address: {props.fact.address} </CardSubtitle>
+          <CardText>Business Review: {props.fact.original_text_review}</CardText>
+          <CardLink className="star" href="#"><HoverRating /></CardLink>
+          </CardBody>
+          </Card>
+          <Card>
+            <CardBody>
+              {/* <CardLink className="stars" href="#"><AdjustedRating /></CardLink> */}
+        </CardBody>
+      </Card>
     </div>
   );
-}
+};
 
 export default ComplexGrid;

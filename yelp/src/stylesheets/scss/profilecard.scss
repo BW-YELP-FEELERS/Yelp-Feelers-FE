@@ -7,4 +7,10 @@
     cursor: pointer;
     position: relative;
     margin: 1rem auto;
-  }
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

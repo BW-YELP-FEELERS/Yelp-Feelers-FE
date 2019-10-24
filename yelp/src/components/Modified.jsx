@@ -1,27 +1,28 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRest } from '../actions';
+import { fetchMod } from '../actions/modifiedAction';
 import YDetail from './YDetail'
 
 
-const ProfileList = props => {
+
+const Review = props => {
     
-    console.log(props.fetchRest)
+    console.log(props)
   useEffect(() => {
-    props.fetchRest();
+    props.fetchMod(props);
   }, []);
 
   if (props.isFetching) {
     // usually a spinner (react-loader-spinner)
-    return <h2>Loading Resturants Facts...</h2>;
+    return <h2>Loading Feelers Reviews...</h2>;
   }
-
+console.log(`Pl`, props)
   return (
     <div>
       {props.error && <p>{props.error}</p>}
-      {props.catFacts.map(fact => (
-        <YDetail key={fact._id} fact={fact} />
+      {props.adjusted.map(mod => (
+        <YDetail key={mod.id} mod={mod} />
       ))}
     </div>
   );
@@ -29,16 +30,13 @@ const ProfileList = props => {
 
 const mapStateToProps = state => {
   return {
-    catFacts: state.catFacts,
-    isFetching: state.isFetching,
-    error: state.error
+    adjusted: state.modified.adjusted,
+    isFetching: state.modified.isFetching,
+    error: state.modified.error
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchRest }
-)(ProfileList);
-
-
-
+  { fetchMod }
+)(Review);
