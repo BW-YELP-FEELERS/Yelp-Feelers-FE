@@ -1,13 +1,13 @@
 //to consume all reducer files
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE} from '../actions/index'
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE} from '../actions/modifiedAction'
 
 const initialState = {
-    diner : [],
+    adjusted : [],
     isFetching: false,
     error: ''
 }
 
-const restaurants = (state = initialState, action) => {
+const modified = (state = initialState, action) => {
     switch (action.type) {
         case START_FETCHING:
           return {
@@ -20,7 +20,7 @@ const restaurants = (state = initialState, action) => {
             ...state,
             isFetching: false,
             error: '',
-            diner: action.payload
+            adjusted: action.payload
           };
         case FETCH_FAILURE:
           return {
@@ -33,4 +33,4 @@ const restaurants = (state = initialState, action) => {
       }
     };
  
-export default restaurants;
+export default modified;

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 export const useLocalStorage = (key, initalValue) => {
 //to set to local storage we need a key as string and a value

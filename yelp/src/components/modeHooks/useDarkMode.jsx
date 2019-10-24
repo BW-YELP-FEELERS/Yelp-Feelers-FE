@@ -1,5 +1,5 @@
 // will bring over [storedValue, setValue]
-import {useLocalStorage} from './useLocalStorage'
+import {useLocalStorage} from './useLocalStorage.jsx'
 //use effect hook to manipulate the DOM to DarkMode
 import React, {useEffect} from 'react'
 
@@ -24,4 +24,4 @@ export const useDarkMode = () => {
         [someMode, setSomeMode]
     )
 
-}
+    }

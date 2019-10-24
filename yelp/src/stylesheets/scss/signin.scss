@@ -1,6 +1,6 @@
   
 .backgroundSignin {
-    background-image: url("../assets/sweets.jpg");
+    /* background-image: url("../assets/diner.jpg"); */
     background-color: #cccccc;
     height: 800px;
     background-size: cover;
@@ -8,14 +8,7 @@
     background-position: center;
     position: relative;
     display: block;
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
     transition: all 1000ms;
-}
-
-.backgroundR:hover{
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
 }
 
 .content{

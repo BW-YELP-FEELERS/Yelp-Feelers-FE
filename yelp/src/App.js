@@ -1,49 +1,56 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
 import Login from './components/Login';
-import SignIn from './components/SignIn';
 // import Main from './components/Main';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Register';
-import ProfileList from './components/ProfileList';
-import Ad from './components/Ad'
+import Review from './components/Review';
+// import Favorites from './components/Favorites';
+import AdF from './components/AdF';
+import SimpleBottomNavigation from './components/AppBar';
+import './stylesheets/scss/index.css';
 
 
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <ul>
-          {/* <li>
-            <Link to="/login">Login</Link>
-          </li> */}
+      <div className="App">        
+        <ul className="sign-forms">
           <li>
             <Link to="/signin">Sign In</Link>
           </li>
           <li>
             <Link to="/register">Sign Up</Link>
           </li>
-          <li>
-            <Link to="/profileList">ProfileList</Link>
-          </li>
-         
         </ul>
+        <div className="title-grid">
+          <ul>          
+            <li>
+              <Link to="/review">Review</Link>
+            </li>
+          </ul>
+          <span>
+        <h1>Welcome to Yelp Feeder</h1>
+          </span>
+        </div>
+
         {/* switch, can use without exact */}
         <Switch>
           {/* <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="" component={AddFriend} /> */}
-          {/* <Route path="/login" component={Login} /> */}
-          <Route path="/signin" component={SignIn} />
+          {/* <Route exact path="/" component={Main} /> */}
+          <Route path="/signin" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/profileList" component={ProfileList} />
+          <PrivateRoute path="/review" component={Review} />
+          {/* <PrivateRoute path="/favorites" component={Favorites} /> */}
           <Route
-              path="/movies/:id"
+              path="/reviews/:id"
               render={props => {
-          return <Ad {...props} />;
+          return <AdF {...props} />;
         }} />
-         
-        </Switch>
+         </Switch>
+        <SimpleBottomNavigation />
       </div>
     </Router>
   );

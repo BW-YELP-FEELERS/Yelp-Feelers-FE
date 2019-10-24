@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-import '../css/signin.css';
-
-//import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -16,10 +13,12 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import SimpleBottomNavigation from './AppBar';
+import { Input } from '@material-ui/core';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="textSecondary" align="center" padding="15px">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -58,7 +57,7 @@ const useStyles = makeStyles(theme => ({
 
   
 
-const SignIn = (props) => {
+const Login = (props) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const[credentials, setCred]= useState({username:'', password:''})
@@ -70,6 +69,7 @@ const SignIn = (props) => {
         ...credentials,
         [e.target.name]: e.target.value
     });
+    console.log(credentials)
   };
 
 
@@ -77,15 +77,16 @@ const SignIn = (props) => {
   //gets token and saves in localstorage
   const login = e => {
     e.preventDefault();
+    console.log(credentials)
     // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
     axiosWithAuth()
       .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
       .then(res => {
-          console.log(res.data)
-        localStorage.setItem('token', res.data.payload);
+          console.log(res)
+        localStorage.setItem('token', res.data.token);
         // redirect to the apps main page?
         //Route component - props.history
-        props.history.push('/');
+        props.history.push('/review');
       })
       .catch(err => console.log(err));
   };
@@ -97,23 +98,21 @@ const SignIn = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        {/* <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar> */}
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h2">
           Sign in
         </Typography>
-        <form onSubmit={login} className={classes.form} noValidate>
+        <form onSubmit={login} className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
+            id="username"
+            label="UserName"
+            name="username"
+            autoComplete="username"
+            value={credentials.username}
+            onChange={handleChange}
           />
           <TextField
             variant="outlined"
@@ -125,6 +124,8 @@ const SignIn = (props) => {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={credentials.password}
+            onChange={handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -146,8 +147,8 @@ const SignIn = (props) => {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/register" variant="body2">
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
@@ -161,4 +162,4 @@ const SignIn = (props) => {
     </>
   );
 }
-export default SignIn;
+export default Login;

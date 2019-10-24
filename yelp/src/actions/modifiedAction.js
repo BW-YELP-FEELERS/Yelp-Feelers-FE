@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+
 
 // action types
 export const START_FETCHING = 'START_FETCHING';
@@ -12,15 +12,12 @@ export const NEW_REVIEW_FAILURE = 'ADD_REVIEW_FAILURE';
 
 // action creator
 //fetchRest imports to Restaurants
-export const fetchRest = () => dispatch => {
+export const fetchMod = () => dispatch => {
   // action objects
   dispatch({ type: START_FETCHING });
   // from thunk (see below) do some async action and dispatch an error or success action
-  axiosWithAuth()
-  .get('https://yelp-feelers-be.herokuapp.com/reviews')
+  axios.get('https://yelp-feelers-be.herokuapp.com/auth/reviews')
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
-    // .then(res => console.log(`Index Action res.data`, res.data))
+    // .then(res => console.log(res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };
-
-
