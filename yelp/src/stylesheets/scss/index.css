@@ -171,6 +171,15 @@ span h1 {
   position: absolute;
 }
 
+.text-review {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /*# sourceMappingURL=index.css.map */
 
 
