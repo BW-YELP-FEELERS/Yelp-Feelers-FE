@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { favoriteSave } from '../actions/favoritesAction';
 import { fetchAd } from '../actions/adActions';
 import ButtonSave from "./ButtonSave"
+import SimpleGrid from "./SimpleGrid";
 // import Navbar from './Mode';
 
   const AdF = (props) => {
@@ -35,7 +36,7 @@ return (
   <>
   {/* <Navbar /> */}
   <div className="save-wrapper">
-    <ComplexGrid fact={props.ad} />
+    <SimpleGrid fact={props.ad} />
     
     {/* <button className="save-button" 
     onClick={favoriteSave(props.ad)}>

@@ -1,6 +1,7 @@
 import React from 'react'
 //import ProfileCard from "./ProfileCard";
 import ComplexGrid from "./ComplexGrid";
+//import SimpleGrid from "./SimpleGrid";
 import { Link } from "react-router-dom";
 import AdjustedRating from './AdjustedStars';
 

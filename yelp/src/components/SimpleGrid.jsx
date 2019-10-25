@@ -11,9 +11,13 @@ const SimpleGrid = props => {
     <div>
       <Card>
         <CardBody>
-          <CardTitle>Business Name: {props.mod.business_name} </CardTitle>
-          <CardSubtitle>Business Address: {props.mod.address} </CardSubtitle>
-          <CardText>Business Review: {props.mod.original_text_review}</CardText>
+          <CardTitle>Business Name: {props.fact.business_name} </CardTitle>
+          <br></br>
+          <CardSubtitle>Business Address: {props.fact.address} </CardSubtitle>
+          <br></br>
+          <CardText className="text-review2">Business Review:
+          <br></br>
+           {props.fact.original_text_review}</CardText>
           {/* <CardLink className="stars" href="#"><AdjustedRating /></CardLink> */}
         </CardBody>
       </Card>

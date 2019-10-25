@@ -178,6 +178,19 @@ span h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  display:block; width: 1000px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-review2 {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.css.map */

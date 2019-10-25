@@ -25,7 +25,7 @@ const ComplexGrid = (props) => {
         <CardBody>
           <CardTitle>Business Name: {props.fact.business_name} </CardTitle>
           <CardSubtitle>Business Address: {props.fact.address} </CardSubtitle>
-          <CardText>Business Review: {props.fact.id}</CardText>
+          <CardText>Business ID: {props.fact.id}</CardText>
           <CardLink className="star" href="#"><HoverRating /></CardLink>
           </CardBody>
           </Card>
