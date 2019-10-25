@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 
 
 function IconContainer(props) {
-  console.log(props)
+  // console.log(props)
   const { value, ...other } = props;
   return (
     <Tooltip title={value}>
@@ -34,8 +34,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function AdjustedRating() {
-
+export default function AdjustedRating(props) {
+console.log(props)
   const value = 4;
   const [hover, setHover] = React.useState(-1);
   const classes = useStyles();
@@ -48,10 +48,10 @@ export default function AdjustedRating() {
         <div className="stars">
           <Rating
             name="hover-side"
-            value={value}
+            value={3}
             readOnly = {true}
           />
-          <Box ml={2}>{value[hover !== -1 ? hover : value]}</Box>
+          <Box ml={3}>{value[hover !== -1 ? hover : value]}</Box>
         </div>
       </Box>
       </div>

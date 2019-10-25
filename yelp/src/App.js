@@ -24,6 +24,9 @@ function App() {
             <a href="https://practical-lamport-cc4fcf.netlify.com/">Landing</a>
           </li>
           <li>
+            <a href="https://yelp-sentiment-analysis-linear.herokuapp.com/">Sentiment Analysis</a>
+          </li>
+          <li>
             <Link to="/signin">Sign In</Link>
           </li>
           <li>

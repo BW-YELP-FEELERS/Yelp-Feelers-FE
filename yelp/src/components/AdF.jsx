@@ -6,6 +6,8 @@ import { favoriteSave } from '../actions/favoritesAction';
 import { fetchAd } from '../actions/adActions';
 import ButtonSave from "./ButtonSave"
 import SimpleGrid from "./SimpleGrid";
+import HoverRating from './Stars'
+import AdjustedRating from './AdjustedStars'
 // import Navbar from './Mode';
 
   const AdF = (props) => {
@@ -37,6 +39,8 @@ return (
   {/* <Navbar /> */}
   <div className="save-wrapper">
     <SimpleGrid fact={props.ad} />
+    <HoverRating fact={props.ad} />
+    {/* <AdjustedRating fact={props.ad} /> */}
     
     {/* <button className="save-button" 
     onClick={favoriteSave(props.ad)}>

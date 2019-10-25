@@ -45,7 +45,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HoverRating() {
+export default function HoverRating(props) {
+  console.log(props)
   const value = 2;
   const [hover, setHover] = React.useState(-1);
   const classes = useStyles();
@@ -57,10 +58,10 @@ export default function HoverRating() {
         <div className="stars">
           <Rating
             name="hover-side"
-            value={value}
+            value={4}
             readOnly = {true}
           />
-          <Box ml={2}>{value[hover !== -1 ? hover : value]}</Box>
+          <Box ml={4}>{value[hover !== -1 ? hover : value]}</Box>
         </div>
       </Box>
     </div>
