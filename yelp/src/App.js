@@ -8,6 +8,7 @@ import Review from './components/Review';
 // import Favorites from './components/Favorites';
 import SavedContainer from './components/SavedContainer';
 import SimpleBottomNavigation from './components/AppBar';
+import Favorites from './components/Favorites'
 import './stylesheets/scss/index.css';
 
 
@@ -32,6 +33,11 @@ function App() {
               <Link to="/review">Review</Link>
             </li>
           </ul>
+          <ul>          
+            <li>
+              <Link to="/favorites">Favorites</Link>
+            </li>
+          </ul>
           <span>
         <h1>Welcome to Yelp Feeder</h1>
           </span>
@@ -45,6 +51,7 @@ function App() {
           <Route path="/signin" component={Login} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/review" component={Review} />
+          <PrivateRoute path="/favorites" component={Favorites} />
           {/* <PrivateRoute path="/favorites" component={Favorites} /> */}
           <Route
               path="/reviews/:id"

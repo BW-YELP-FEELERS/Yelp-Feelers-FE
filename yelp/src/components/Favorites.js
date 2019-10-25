@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
+import {favoriteGet} from '../actions/restaurants'
 import {favoriteRemove} from '../actions/favoritesAction'
 //import ComplexGrid from './ComplexGrid';
-import SimpleGrid from './SimpleGrid'
+import ComplexGrid from './ComplexGrid'
 import { connect } from 'react-redux';
 import MyProfile from './MyProfile'
 
 
+
 const Favorites = (props) => {
-    console.log(`Favorites props`,props.myFavorites)
+    const[favs, setFavs]=useState([])
+
+    console.log(`Favorites props`,props)
+    console.log(`Favorites favs`,favs)
+    
+    useEffect(()=>{
+    axiosWithAuth()
+    .get(`https://yelp-feelers-be.herokuapp.com/auth/users/${props.loggedInId}/favs`)
+    // .then(res => dispatch({ type: FAVORITE_REMOVE, payload: res.data }))
+    .then(res => setFavs(res.data.response)) 
+    // .then(res => console.log(`favoriteGet`,res))
+    .catch(err => console.log(err));
+    },[]);
    
-  
     return (
         <div className="save-wrapper">
-        <SimpleGrid fact={props.ad} />
+            {favs.map((fact => (
+                <ComplexGrid
+                key={fact.id} fact={fact} />
+            )))}
         <button className="save-button" 
         onClick={favoriteRemove(props)}>
           Remove
@@ -25,12 +42,13 @@ const Favorites = (props) => {
   
 const mapStateToProps = state => {
     return {
-      //myfavorites: state.favorites.myFavorites,
+     ad: state.favorites.myfavorites,
       loggedInId: state.loginId.idUser
     };
+   
   };
   
   export default connect(
     mapStateToProps,
-    { favoriteRemove }
+    { favoriteGet, favoriteRemove }
   )(Favorites);

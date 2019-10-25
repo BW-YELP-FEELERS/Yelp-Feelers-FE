@@ -5,6 +5,7 @@ export const FAVORITE_SAVE = 'FAVORITE_SAVE'
 export const FAVORITE_REMOVE = 'FAVORITE_REMOVE'
 export const FAVORITE_SAVERR = 'FAVORITE_SAVERR'
 
+
 //waiting for api to store favorites
 export const favoriteSave = (props) => dispatch => {
     // make sure to call dispatch
@@ -27,3 +28,4 @@ export const favoriteRemove = (props) => dispatch => {
     .then(res => console.log(res.data))
     .catch(err => dispatch({ type: FAVORITE_SAVERR, payload: err.response }));
 }
+

@@ -12,7 +12,6 @@ import { withRouter } from "react-router";
 const favSave = ((e)=>{
     e.preventDefault()
     props.favoriteSave(props)
-    alert('Review Saved')
     props.history.push('/')
 })
 

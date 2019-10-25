@@ -1,4 +1,5 @@
 import { FAVORITE_SAVE, FAVORITE_REMOVE, FAVORITE_SAVERR} from '../actions/favoritesAction'
+import {FAVORITE_GET} from '../actions/favortieGet'
 
 const initialState = {
     myfavorites : [],
@@ -7,7 +8,7 @@ const initialState = {
 }
 
 
-const favorites = (state = initialState, action) => {
+const Favorites = (state = initialState, action) => {
     switch(action.type){
         // case FAVORITE_FETCH:
         //     return{
@@ -34,11 +35,16 @@ const favorites = (state = initialState, action) => {
                 err:true,
                 message:"Try again..."
             }
+            case FAVORITE_GET:
+                    return{
+                        ...state,
+                        myfavorites: action.payload
+                    }
         //must include default: return state
         default:
             return state
     }
     
 }
-export default favorites
+export default Favorites
 
