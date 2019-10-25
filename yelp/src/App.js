@@ -20,6 +20,9 @@ function App() {
     <Router>
       <div className="App">        
         <ul className="sign-forms">
+        <li>
+            <a href="https://practical-lamport-cc4fcf.netlify.com/">Landing</a>
+          </li>
           <li>
             <Link to="/signin">Sign In</Link>
           </li>

@@ -6,6 +6,7 @@ import {favoriteRemove} from '../actions/favoritesAction'
 //import ComplexGrid from './ComplexGrid';
 import ComplexGrid from './ComplexGrid'
 import { connect } from 'react-redux';
+import ButtonSave from './ButtonSave'
 import MyProfile from './MyProfile'
 
 
@@ -35,6 +36,7 @@ const Favorites = (props) => {
         onClick={favoriteRemove(props)}>
           Remove
         </button>
+        <ButtonSave />
         </div>
     );
 };
