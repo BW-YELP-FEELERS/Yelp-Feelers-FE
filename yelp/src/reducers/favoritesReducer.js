@@ -20,7 +20,7 @@ const favorites = (state = initialState, action) => {
             return{
             ...state,
             myfavorites: action.payload,
-            message: action.payload.data.message
+            message: 'Review Saved!'
         }
 
         case FAVORITE_REMOVE:

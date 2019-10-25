@@ -35,16 +35,11 @@ const ComplexGrid = (props) => {
         </CardBody>
       </Card>
       <div>
-            <Button color="primary" id="toggler" style={{ marginBottom: '1rem' }}>
-              Toggle
-            </Button>
-            <UncontrolledCollapse toggler="#toggler">
               <Card>
               <CardText className="text-review">Business Review:
                 <br></br>
                  {props.fact.original_text_review}</CardText>
               </Card>
-            </UncontrolledCollapse>
           </div>
     </div>
     </>
