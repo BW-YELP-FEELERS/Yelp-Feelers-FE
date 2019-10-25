@@ -19,7 +19,7 @@ const Review = props => {
   }
 console.log(`Pl`, props)
   return (
-    <div>
+    <div className='darkMode'>
       {props.error && <p>{props.error}</p>}
       {props.adjusted.map(mod => (
         <YDetail key={mod.id} mod={mod} />

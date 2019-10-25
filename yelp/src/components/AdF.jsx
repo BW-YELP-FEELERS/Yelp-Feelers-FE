@@ -4,9 +4,15 @@ import ComplexGrid from './ComplexGrid';
 import { connect } from 'react-redux';
 import { favoriteSave } from '../actions/favoritesAction';
 import { fetchAd } from '../actions/adActions';
+import ButtonSave from "./ButtonSave"
 // import Navbar from './Mode';
 
   const AdF = (props) => {
+
+    // const fetchAdding= ((e)=>{
+    //   e.preventDefault()
+    //   props.fetchAd(props)
+    // })
 
     useEffect(() => {
       console.log(`Ad props`, props)
@@ -30,10 +36,11 @@ return (
   {/* <Navbar /> */}
   <div className="save-wrapper">
     <ComplexGrid fact={props.ad} />
-    <button className="save-button" 
+    
+    {/* <button className="save-button" 
     onClick={favoriteSave(props.ad)}>
       Save to Favorites
-    </button>
+    </button> */}
     {/* <button
     onClick={() => this.props.history.push(`/update-movie/${this.state.ad.id}`)}
   >
@@ -50,8 +57,9 @@ return (
 const mapStateToProps = state => {
 return {
   ad: state.adReducer.ad,
-  isFetching: state.adReducer.isFetching,
-  error: state.adReducer.error
+  // isFetching: state.adReducer.isFetching,
+  // error: state.adReducer.error,
+  //loggedInId: state.loginId.idUser
 };
 };
 

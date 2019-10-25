@@ -6,13 +6,15 @@ import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Register';
 import Review from './components/Review';
 // import Favorites from './components/Favorites';
-import AdF from './components/AdF';
+import SavedContainer from './components/SavedContainer';
 import SimpleBottomNavigation from './components/AppBar';
 import './stylesheets/scss/index.css';
 
 
 
 function App() {
+  
+
   return (
     <Router>
       <div className="App">        
@@ -47,7 +49,7 @@ function App() {
           <Route
               path="/reviews/:id"
               render={props => {
-          return <AdF {...props} />;
+          return <SavedContainer {...props} />;
         }} />
          </Switch>
         <SimpleBottomNavigation />

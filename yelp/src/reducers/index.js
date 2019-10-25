@@ -13,11 +13,13 @@ import restaurants from './restaurants'
 import adReducer from './adReducer'
 import favorites from './favoritesReducer'
 import modified from './modifiedReducer'
+import loginId from './loginReducer'
 
 export default combineReducers ({
   restaurants,
   adReducer,
   favorites,
-  modified
+  modified,
+  loginId
 })
 export {logged} from './loggedIn';

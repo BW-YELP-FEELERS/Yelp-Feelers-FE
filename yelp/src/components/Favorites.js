@@ -15,7 +15,7 @@ const Favorites = (props) => {
         <div className="save-wrapper">
         <SimpleGrid fact={props.ad} />
         <button className="save-button" 
-        onClick={favoriteRemove(props.ad)}>
+        onClick={favoriteRemove(props)}>
           Remove
         </button>
         </div>
@@ -25,7 +25,8 @@ const Favorites = (props) => {
   
 const mapStateToProps = state => {
     return {
-      myfavorites: state.favorites.myFavorites,
+      //myfavorites: state.favorites.myFavorites,
+      loggedInId: state.loginId.idUser
     };
   };
   

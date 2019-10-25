@@ -1,7 +1,8 @@
-import { FAVORITE_SAVE, FAVORITE_REMOVE} from '../actions/favoritesAction'
+import { FAVORITE_SAVE, FAVORITE_REMOVE, FAV_SAVERR} from '../actions/favoritesAction'
 
 const initialState = {
-    myfavorites : []
+    myfavorites : [],
+    err: false
 }
 
 

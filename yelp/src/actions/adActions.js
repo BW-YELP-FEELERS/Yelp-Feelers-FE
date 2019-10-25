@@ -12,10 +12,13 @@ export const AD_FAILURE = 'AD_FAILURE';
 //fetchRest imports to Restaurants
 export const fetchAd = (props) => dispatch => {
   console.log(`adActions`,props)
+
   // action objects
+
   dispatch({ type: AD_FETCH });
   // from thunk (see below) do some async action and dispatch an error or success action
-  axiosWithAuth()
+ 
+ axiosWithAuth()
   .get(`https://yelp-feelers-be.herokuapp.com/reviews/${props.match.params.id}`)
     .then(res => dispatch({ type: AD_SUCCESS, payload: res.data.review}))
     // .then(res => console.log(`adActions`, res.data.review))

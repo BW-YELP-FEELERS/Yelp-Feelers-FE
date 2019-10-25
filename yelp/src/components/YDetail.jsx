@@ -7,7 +7,8 @@ import AdjustedRating from './AdjustedStars';
 //create an individual link on each item,
 // uses /movies/fact._id -> extract id, and add to movies to create new url
 function YDetail({ fact }) {
-  console.log(`YDetails`,fact.id)
+  
+  // console.log(`YDetails`,fact.id)
     return (
       <>
       <Link to={`/reviews/${fact.id}`}>

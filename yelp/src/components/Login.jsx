@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import SimpleBottomNavigation from './AppBar';
 import { Input } from '@material-ui/core';
+import {fetchLog} from '../actions/logged'
 
 function Copyright() {
   return (
@@ -55,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-  
+ 
 
 const Login = (props) => {
   // make a post request to retrieve a token from the api
@@ -73,23 +75,40 @@ const Login = (props) => {
   };
 
 
+ //when submit fires, default behavior is
+  //to refresh, e.preventDefault doesnt refresh onSubmit
+  const fetchLogging = ((e) =>{
+    e.preventDefault()
+    console.log(`login props`, e)
+    props.fetchLog(credentials)
+    props.history.push('/review');
+  })
+
+  // useEffect(() => {
+  //   console.log(`login props`, e)
+  //     props.fetchLog(credentials)
+  //   }, [])
+
+
+
+
     //makes request to api/login, sends object of username / password (this.state.credentials)
   //gets token and saves in localstorage
-  const login = e => {
-    e.preventDefault();
-    console.log(credentials)
-    // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
-    axiosWithAuth()
-      .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
-      .then(res => {
-          console.log(res)
-        localStorage.setItem('token', res.data.token);
-        // redirect to the apps main page?
-        //Route component - props.history
-        props.history.push('/review');
-      })
-      .catch(err => console.log(err));
-  };
+  // const login = e => {
+  //   e.preventDefault();
+  //   console.log(credentials)
+  //   // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
+  //   axiosWithAuth()
+  //     .post('https://yelp-feelers-be.herokuapp.com/login', credentials)
+  //     .then(res => {
+  //         console.log(res)
+  //       localStorage.setItem('token', res.data.token);
+  //       // redirect to the apps main page?
+  //       //Route component - props.history
+  //       props.history.push('/review');
+  //     })
+  //     .catch(err => console.log(err));
+  // };
   
 
   return (
@@ -101,7 +120,7 @@ const Login = (props) => {
         <Typography component="h1" variant="h2">
           Sign in
         </Typography>
-        <form onSubmit={login} className={classes.form}>
+        <form onSubmit={fetchLogging} className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -162,4 +181,16 @@ const Login = (props) => {
     </>
   );
 }
-export default Login;
+
+const mapStateToProps = state => {
+  return {
+    diner: state.restaurants.diner,
+    isFetching: state.restaurants.isFetching,
+    error: state.restaurants.error
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchLog }
+)(Login);
