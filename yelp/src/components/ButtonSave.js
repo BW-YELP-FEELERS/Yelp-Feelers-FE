@@ -24,6 +24,7 @@ console.log(props)
 
 return (
   <>
+  {props.message && <h4>{props.message}</h4>}
   <form>
     <button className="save-button" 
     onClick={favSave}>
@@ -39,9 +40,10 @@ return (
 }
 
 const mapStateToProps = state => {
-  console.log(`fruit`,state.loginId.idUser)
+  console.log(`fruit`,state.favorites.message)
 return {
   ad: state.adReducer.ad,
+  message: state.favorites.message,
 //   // isFetching: state.adReducer.isFetching,
 //   // error: state.adReducer.error,
   loggedInId: state.loginId.idUser

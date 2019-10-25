@@ -1,8 +1,9 @@
-import { FAVORITE_SAVE, FAVORITE_REMOVE, FAV_SAVERR} from '../actions/favoritesAction'
+import { FAVORITE_SAVE, FAVORITE_REMOVE, FAVORITE_SAVERR} from '../actions/favoritesAction'
 
 const initialState = {
     myfavorites : [],
-    err: false
+    err: false,
+    message: ""
 }
 
 
@@ -18,7 +19,8 @@ const favorites = (state = initialState, action) => {
             console.log(action.payload)
             return{
             ...state,
-            myfavorites: action.payload
+            myfavorites: action.payload,
+            message: action.payload.data.message
         }
 
         case FAVORITE_REMOVE:
@@ -26,6 +28,12 @@ const favorites = (state = initialState, action) => {
                 ...state, 
                 myfavorites: state.favorites.filter(e => !e.action.payload)
                  }
+        case FAVORITE_SAVERR:
+            return{
+                ...state,
+                err:true,
+                message:"Try again..."
+            }
         //must include default: return state
         default:
             return state

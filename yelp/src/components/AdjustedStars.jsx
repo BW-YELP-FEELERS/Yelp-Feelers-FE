@@ -42,6 +42,7 @@ export default function AdjustedRating() {
 
   return (
     <div>
+      <div id="myDIV">
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Typography component="legend"><h1>Adjusted Rating:</h1></Typography>
         <div className="stars">
@@ -53,6 +54,7 @@ export default function AdjustedRating() {
           <Box ml={2}>{value[hover !== -1 ? hover : value]}</Box>
         </div>
       </Box>
+      </div>
     </div>
   );
 }
