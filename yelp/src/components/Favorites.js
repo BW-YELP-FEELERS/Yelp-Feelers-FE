@@ -8,7 +8,7 @@ import ComplexGrid from './ComplexGrid'
 import { connect } from 'react-redux';
 import ButtonSave from './ButtonSave'
 import MyProfile from './MyProfile'
-
+import FavoritesDisplay from './FavoritesDisplay'
 
 
 const Favorites = (props) => {
@@ -29,7 +29,7 @@ const Favorites = (props) => {
     return (
         <div className="save-wrapper">
             {favs.map((fact => (
-                <ComplexGrid
+                <FavoritesDisplay
                 key={fact.id} fact={fact} />
             )))}
         <button className="save-button" 
