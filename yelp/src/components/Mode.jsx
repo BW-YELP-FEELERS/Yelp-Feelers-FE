@@ -8,6 +8,7 @@ const Navbar = () => {
   const toggleMode = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
+    //below turns div on and off
     var x = document.getElementById("myDIV");
         if (x.style.display === "none") {
         x.style.display = "block";
