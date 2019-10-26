@@ -5,7 +5,7 @@ import {
    Nav, NavItem, NavLink, Row, Col
 } from 'reactstrap';
 import classnames from 'classnames';
-import AdjustedRating from './AdjustedStars';
+
 import NAVBAR from './Mode'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
