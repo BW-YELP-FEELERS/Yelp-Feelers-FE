@@ -3,11 +3,10 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 import {favoriteGet} from '../actions/restaurants'
 import {favoriteRemove} from '../actions/favoritesAction'
-//import ComplexGrid from './ComplexGrid';
-import ComplexGrid from './ComplexGrid'
 import { connect } from 'react-redux';
 import ButtonSave from './ButtonSave'
-import MyProfile from './MyProfile'
+import FavoriteDisplay from './FavoritesDisplay'
+
 
 
 
@@ -29,7 +28,7 @@ const Favorites = (props) => {
     return (
         <div className="save-wrapper">
             {favs.map((fact => (
-                <ComplexGrid
+                <FavoriteDisplay
                 key={fact.id} fact={fact} />
             )))}
         <button className="save-button" 
