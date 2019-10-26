@@ -5,14 +5,9 @@ import {favoriteGet} from '../actions/restaurants'
 import {favoriteRemove} from '../actions/favoritesAction'
 import { connect } from 'react-redux';
 import ButtonSave from './ButtonSave'
-<<<<<<< HEAD
 import FavoriteDisplay from './FavoritesDisplay'
 
 
-=======
-import MyProfile from './MyProfile'
-import FavoritesDisplay from './FavoritesDisplay'
->>>>>>> a5af1ab044b078b9cda07d064b0d2c355afd619d
 
 
 const Favorites = (props) => {
@@ -33,11 +28,7 @@ const Favorites = (props) => {
     return (
         <div className="save-wrapper">
             {favs.map((fact => (
-<<<<<<< HEAD
                 <FavoriteDisplay
-=======
-                <FavoritesDisplay
->>>>>>> a5af1ab044b078b9cda07d064b0d2c355afd619d
                 key={fact.id} fact={fact} />
             )))}
         <button className="save-button" 

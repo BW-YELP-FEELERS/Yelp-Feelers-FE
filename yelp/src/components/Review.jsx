@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchRest } from '../actions';
 import YDetail from './YDetail'
-import HoverRating from './Stars'
-import AdjustedRating from './AdjustedStars'
+
 
 const Review = props => {
     

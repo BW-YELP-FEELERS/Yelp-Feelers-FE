@@ -32,11 +32,6 @@ const useStyles = makeStyles({
 
 
 const ComplexGrid = (props) => {
-<<<<<<< HEAD
-    // const [activeTab, setActiveTab] = useState('1');
-=======
-    const [activeTab, setActiveTab] = useState('1');
->>>>>>> a5af1ab044b078b9cda07d064b0d2c355afd619d
 
     console.log(`props.fact.user_review`,props.fact)
  
